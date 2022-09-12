@@ -15,10 +15,6 @@
 [ext_resource path="res://src/combat/battlers/skills/Slash.tres" type="Resource" id=13]
 [ext_resource path="res://src/map/pawns/RobiPawnAnim.tscn" type="PackedScene" id=14]
 
-
-
-
-
 [node name="Party" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -45,7 +41,6 @@ pawn_anim_path = NodePath("RobiPawnAnim")
 growth = ExtResource( 10 )
 
 [node name="Battler" parent="Robi" index="0"]
-editor/display_folded = true
 party_member = true
 turn_order_icon = ExtResource( 11 )
 
@@ -60,11 +55,7 @@ script = ExtResource( 8 )
 
 [node name="RobiPawnAnim" parent="Robi" instance=ExtResource( 14 )]
 
-
 [editable path="Godette"]
-
 [editable path="Godette/Battler"]
-
 [editable path="Robi"]
-
 [editable path="Robi/Battler"]

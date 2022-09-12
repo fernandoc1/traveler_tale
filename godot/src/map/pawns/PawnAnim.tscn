@@ -1,12 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/map/pawns/PawnAnim.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/local_map/characters/character_grey.png" type="Texture" id=2]
-
-
+[ext_resource path="res://assets/sprites/battlers/archer-f-p3.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "bump"
 length = 0.1
 step = 0.01
@@ -24,7 +21,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "walk"
 length = 0.25
 step = 0.05
@@ -65,6 +61,7 @@ anims/walk = SubResource( 2 )
 position = Vector2( 1.43051e-06, -1.90735e-06 )
 
 [node name="Body" type="Sprite" parent="Root"]
-scale = Vector2( 3, 3 )
+scale = Vector2( 10, 10 )
 texture = ExtResource( 2 )
-
+hframes = 8
+vframes = 6
