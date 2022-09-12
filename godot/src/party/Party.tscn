@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/party/Party.gd" type="Script" id=1]
 [ext_resource path="res://src/party/PartyMember.tscn" type="PackedScene" id=2]
@@ -14,78 +14,6 @@
 [ext_resource path="res://src/combat/animation/RobiAnim.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/combat/battlers/skills/Slash.tres" type="Resource" id=13]
 [ext_resource path="res://src/map/pawns/RobiPawnAnim.tscn" type="PackedScene" id=14]
-
-[sub_resource type="Animation" id=1]
-resource_name = "appear"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.435275, 2.46229 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.6 ),
-"transitions": PoolRealArray( 0.378929 ),
-"update": 3,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "blink"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.435275, 2.46229 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1.2, 1.2, 1.2, 1 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "idle"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
 
 [node name="Party" type="Node2D"]
 script = ExtResource( 1 )
@@ -130,33 +58,7 @@ script = ExtResource( 8 )
 
 [node name="RobiPawnAnim" parent="Robi" instance=ExtResource( 14 )]
 
-[node name="Robi2" parent="." instance=ExtResource( 2 )]
-pawn_anim_path = NodePath("RobiPawnAnim")
-growth = ExtResource( 10 )
-
-[node name="Battler" parent="Robi2" index="0"]
-party_member = true
-turn_order_icon = ExtResource( 11 )
-
-[node name="AnimationPlayer" parent="Robi2/Battler/Skin" index="1"]
-anims/appear = SubResource( 1 )
-anims/blink = SubResource( 2 )
-anims/idle = SubResource( 3 )
-
-[node name="RobiAnim" parent="Robi2/Battler/Skin" index="2" instance=ExtResource( 12 )]
-
-[node name="Slash" parent="Robi2/Battler/Skills" index="0" instance=ExtResource( 6 )]
-skill = ExtResource( 13 )
-level = 0
-
-[node name="AI" parent="Robi2/Battler" index="6"]
-script = ExtResource( 8 )
-
-[node name="RobiPawnAnim" parent="Robi2" instance=ExtResource( 14 )]
-
 [editable path="Godette"]
 [editable path="Godette/Battler"]
 [editable path="Robi"]
 [editable path="Robi/Battler"]
-[editable path="Robi2"]
-[editable path="Robi2/Battler"]

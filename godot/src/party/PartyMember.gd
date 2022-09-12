@@ -16,12 +16,14 @@ var stats: Resource
 onready var battler: Battler = $Battler
 onready var SAVE_KEY: String = "party_member_" + name
 
+var initializeNow = true
 
 func _ready():
-	assert(pawn_anim_path)
-	assert(growth)
-	stats = growth.create_stats(experience)
-	battler.stats = stats
+	if(initializeNow):
+		assert(pawn_anim_path)
+		assert(growth)
+		stats = growth.create_stats(experience)
+		battler.stats = stats
 
 
 func update_stats(before_stats: CharacterStats):

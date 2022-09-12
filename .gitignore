@@ -24,4 +24,5 @@ mono_crash.*.json
 *.import
 .mono
 tmp/*
+godot/tmp/*
 

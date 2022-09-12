@@ -8,6 +8,8 @@ onready var anim = $AnimationPlayer
 func _ready():
 	anim.set_current_animation('walk')
 
+func set_sprite_texture(path: String):
+	$Root/Body.texture = load(path)
 
 func play_walk():
 	anim.play("walk")
