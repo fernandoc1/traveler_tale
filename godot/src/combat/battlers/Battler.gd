@@ -36,6 +36,9 @@ func initialize():
 	skin.initialize()
 	actions.initialize(skills.get_children())
 	stats = stats.copy()
+	if(self.party_member):
+		var bodyNode: Sprite = skin.get_node("PawnAnim/Root/Body")
+		bodyNode.frame = 7
 	stats.connect("health_depleted", self, "_on_health_depleted")
 
 

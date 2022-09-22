@@ -58,7 +58,6 @@ anims/bump = SubResource( 1 )
 anims/walk = SubResource( 2 )
 
 [node name="Root" type="Position2D" parent="."]
-position = Vector2( 1.43051e-06, -1.90735e-06 )
 
 [node name="Body" type="Sprite" parent="Root"]
 scale = Vector2( 10, 10 )
