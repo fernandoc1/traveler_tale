@@ -12,7 +12,6 @@ var inventory = Inventory.new()
 
 var PartyMember = preload("res://src/party/PartyMember.tscn")
 var PawnAnim = preload("res://src/map/pawns/PawnAnim.tscn")
-var CharacterStats = preload("res://src/combat/battlers/stats/CharacterStats.gd")
 
 func _ready():
 	var partyMember = PartyMember.instance()
