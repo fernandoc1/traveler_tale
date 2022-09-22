@@ -20,9 +20,6 @@ func initialize():
 		if child is BattlerAnim:
 			battler_anim = child
 			break
-	battler_anim = BattlerAnim.new()
-	battler_anim.extents = RectExtents.new()
-	battler_anim.anim = AnimationPlayer.new()
 
 
 func move_forward():
@@ -83,4 +80,6 @@ func appear():
 
 
 func get_extents() -> RectExtents:
+	if(battler_anim == null):
+		return RectExtents.new()
 	return battler_anim.extents

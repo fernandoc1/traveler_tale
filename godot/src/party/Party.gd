@@ -14,6 +14,10 @@ var PartyMember = preload("res://src/party/PartyMember.tscn")
 var PawnAnim = preload("res://src/map/pawns/PawnAnim.tscn")
 
 func _ready():
+	create_battler()
+	pass
+	
+func create_battler():
 	var partyMember = PartyMember.instance()
 	var battler: Battler = partyMember.get_node("Battler")
 	var pawnAnim: PawnAnim = PawnAnim.instance()

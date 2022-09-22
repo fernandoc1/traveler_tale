@@ -8,7 +8,6 @@
 [node name="Formation" type="Node"]
 script = ExtResource( 1 )
 platform_template = ExtResource( 2 )
-background_image = null
 
 [node name="Porcupine3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 607.782, 444.148 )
