@@ -66,9 +66,9 @@ script = ExtResource( 6 )
 
 [node name="Bars" type="VBoxContainer" parent="."]
 margin_left = -100.0
-margin_top = 8.0
+margin_top = 40.0
 margin_right = 100.0
-margin_bottom = 28.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 200, 20 )
 rect_pivot_offset = Vector2( 100, 10 )
 
