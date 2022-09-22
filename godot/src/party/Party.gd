@@ -14,10 +14,12 @@ var PartyMember = preload("res://src/party/PartyMember.tscn")
 var PawnAnim = preload("res://src/map/pawns/PawnAnim.tscn")
 
 func _ready():
-	create_battler()
+	create_battler("res://assets/sprites/battlers/archer-f-p3.png")
+	create_battler("res://assets/sprites/battlers/beatrix-p5.png")
+	create_battler("res://assets/sprites/battlers/barthello-p5.png")
 	pass
 	
-func create_battler():
+func create_battler(spriteTexture: String):
 	var partyMember = PartyMember.instance()
 	var battler: Battler = partyMember.get_node("Battler")
 	var pawnAnim: PawnAnim = PawnAnim.instance()
@@ -28,7 +30,7 @@ func create_battler():
 	battler.party_member = true
 	partyMember.initializeNow = false
 	
-	pawnAnim.set_sprite_texture("res://assets/sprites/battlers/beatrix-p5.png")
+	pawnAnim.set_sprite_texture(spriteTexture)
 	
 	self.add_child(partyMember)
 	
