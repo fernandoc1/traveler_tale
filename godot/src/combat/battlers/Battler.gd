@@ -15,7 +15,7 @@ onready var skin = $Skin
 onready var actions = $Actions
 onready var bars = $Bars
 onready var skills = $Skills
-onready var ai = $AI
+onready var ai = get_ai();
 
 var target_global_position: Vector2
 
@@ -25,7 +25,6 @@ var display_name: String
 
 export var party_member = false
 export var turn_order_icon: Texture
-
 
 func _ready() -> void:
 	var direction: Vector2 = Vector2(-1.0, 0.0) if party_member else Vector2(1.0, 0.0)
@@ -77,3 +76,8 @@ func appear():
 
 func has_point(point: Vector2):
 	return skin.battler_anim.extents.has_point(point)
+
+func get_ai():
+	if(party_member):
+		return PlayerInput.new()
+	return $AI

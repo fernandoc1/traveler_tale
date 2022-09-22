@@ -7,13 +7,15 @@ var initialized = false
 # Since Actions can be instanced by code (ie skills) these
 # actions doesn't have an owner, that's why we get the owner
 # from it's parent (BattlerActions.gd)
-onready var actor: Battler = get_parent().get_owner()
+#onready var actor: Battler = get_parent().get_owner()
+onready var actor = get_parent().get_owner()
 
 export (Texture) var icon = load("res://assets/sprites/icons/slash.png")
 export (String) var description: String = "Base combat action"
 
 
-func initialize(battler: Battler) -> void:
+#func initialize(battler: Battler) -> void:
+func initialize(battler) -> void:
 	actor = battler
 	initialized = true
 
