@@ -54,7 +54,7 @@ func get_monsters():
 func _get_targets(in_party: bool = false) -> Array:
 	var targets: Array = []
 	for child in get_children():
-		if child.party_member == in_party && child.stats.health > 0:
+		if child.isPartyMember() == in_party && child.stats.health > 0:
 			targets.append(child)
 	return targets
 

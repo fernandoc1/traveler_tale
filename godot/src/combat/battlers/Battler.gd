@@ -23,20 +23,20 @@ var selected: bool = false setget set_selected
 var selectable: bool = false setget set_selectable
 var display_name: String
 
-export var party_member = false
+#export var party_member = false
 export var turn_order_icon: Texture
 
 func _ready() -> void:
-	var direction: Vector2 = Vector2(-1.0, 0.0) if party_member else Vector2(1.0, 0.0)
+	var direction: Vector2 = Vector2(-1.0, 0.0) if isPartyMember() else Vector2(1.0, 0.0)
 	target_global_position = $TargetAnchor.global_position + direction * TARGET_OFFSET_DISTANCE
 	selectable = true
 
 
 func initialize():
-	skin.initialize()
+	skin.initialize(self)
 	actions.initialize(skills.get_children())
 	stats = stats.copy()
-	if(self.party_member):
+	if(self.isPartyMember()):
 		var bodyNode: Sprite = skin.get_node("PawnAnim/Root/Body")
 		bodyNode.frame = 7
 	stats.connect("health_depleted", self, "_on_health_depleted")
@@ -72,7 +72,7 @@ func _on_health_depleted():
 
 
 func appear():
-	var offset_direction = 1.0 if party_member else -1.0
+	var offset_direction = 1.0 if isPartyMember() else -1.0
 	skin.position.x += TARGET_OFFSET_DISTANCE * offset_direction
 	skin.appear()
 
@@ -80,7 +80,8 @@ func appear():
 func has_point(point: Vector2):
 	return skin.battler_anim.extents.has_point(point)
 
+func isPartyMember():
+	return false
+
 func get_ai():
-	if(party_member):
-		return PlayerInput.new()
 	return $AI

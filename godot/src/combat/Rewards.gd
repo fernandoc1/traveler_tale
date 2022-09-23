@@ -14,7 +14,7 @@ func initialize(battlers: Array):
 	experience_earned = 0
 	randomize()
 	for battler in battlers:
-		if not battler.party_member:
+		if not battler.isPartyMember():
 			battler.stats.connect("health_depleted", self, "_add_reward", [battler])
 		else:
 			party.append(battler)

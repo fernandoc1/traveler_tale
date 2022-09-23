@@ -6,6 +6,7 @@ export var TWEEN_DURATION: float = 0.3
 onready var tween = $Tween
 onready var anim = $AnimationPlayer
 var battler_anim: BattlerAnim
+var _battler: Battler
 onready var position_start: Vector2
 
 var blink: bool = false setget set_blink
@@ -15,15 +16,19 @@ func _ready():
 	hide()
 
 
-func initialize():
-	for child in get_children():
-		if child is BattlerAnim:
-			battler_anim = child
-			break
+func initialize(battler: Battler):
+	self._battler = battler
+	if(battler.isPartyMember()):
+		battler_anim = battler.getBattlerAnim()
+	else:
+		for child in get_children():
+			if child is BattlerAnim:
+				battler_anim = child
+				break
 
 
 func move_forward():
-	var direction = Vector2(-1.0, 0.0) if owner.party_member else Vector2(1.0, 0.0)
+	var direction = Vector2(-1.0, 0.0) if owner.isPartyMember() else Vector2(1.0, 0.0)
 	tween.interpolate_property(
 		self,
 		'position',
@@ -48,6 +53,8 @@ func move_to(target: Battler):
 		Tween.EASE_OUT
 	)
 	tween.start()
+	if(_battler.isPartyMember()):
+		print("PartyMember")
 	yield(tween, "tween_completed")
 
 
@@ -80,6 +87,6 @@ func appear():
 
 
 func get_extents() -> RectExtents:
-	if(battler_anim == null):
+	if(battler_anim.extents == null):
 		return RectExtents.new()
 	return battler_anim.extents

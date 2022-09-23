@@ -22,7 +22,7 @@ func select_targets(battlers: Array) -> Array:
 	visible = true
 	targets = battlers
 	target_active = targets[0]
-	rect_scale.x = 1.0 if target_active.party_member else -1.0
+	rect_scale.x = 1.0 if target_active.isPartyMember() else -1.0
 	rect_global_position = target_active.target_global_position
 	anim_player.play("wiggle")
 	grab_focus()

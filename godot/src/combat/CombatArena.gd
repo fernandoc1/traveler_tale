@@ -82,7 +82,7 @@ func battle_end():
 	active = false
 	var active_battler = get_active_battler()
 	active_battler.selected = false
-	var player_won = active_battler.party_member
+	var player_won = active_battler.isPartyMember()
 	if player_won:
 		emit_signal("victory")
 		yield(rewards.on_battle_completed(), "completed")
@@ -121,7 +121,7 @@ func get_active_battler() -> Battler:
 
 
 func get_targets() -> Array:
-	if get_active_battler().party_member:
+	if get_active_battler().isPartyMember():
 		return turn_queue.get_monsters()
 	else:
 		return turn_queue.get_party()

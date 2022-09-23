@@ -3,7 +3,7 @@ extends CombatAction
 
 func execute(targets):
 	assert(initialized)
-	if actor.party_member and not targets:
+	if actor.isPartyMember() and not targets:
 		return false
 
 	for target in targets:

@@ -13,7 +13,7 @@ export var growth: Resource
 export var experience: int setget _set_experience
 var stats: Resource
 
-onready var battler: Battler = $Battler
+onready var battler = $Battler
 onready var SAVE_KEY: String = "party_member_" + name
 
 var initializeNow = true

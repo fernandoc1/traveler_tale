@@ -16,7 +16,7 @@ var PawnAnim = preload("res://src/map/pawns/PawnAnim.tscn")
 func _ready():
 	create_battler("res://assets/sprites/battlers/archer-f-p3.png")
 	create_battler("res://assets/sprites/battlers/beatrix-p5.png")
-	create_battler("res://assets/sprites/battlers/barthello-p5.png")
+	#create_battler("res://assets/sprites/battlers/barthello-p5.png")
 	pass
 	
 func create_battler(spriteTexture: String):
@@ -27,7 +27,6 @@ func create_battler(spriteTexture: String):
 
 	battlerSkin.add_child(pawnAnim)
 	battler.stats = CharacterStats.new()
-	battler.party_member = true
 	partyMember.initializeNow = false
 	
 	pawnAnim.set_sprite_texture(spriteTexture)
