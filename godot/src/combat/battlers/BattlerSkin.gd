@@ -20,6 +20,7 @@ func initialize(battler: Battler):
 	self._battler = battler
 	if(battler.isPartyMember()):
 		battler_anim = battler.getBattlerAnim()
+		#pass
 	else:
 		for child in get_children():
 			if child is BattlerAnim:

@@ -9,6 +9,7 @@ onready var battlerAnim: BattlerAnim = load("res://src/combat/animation/PartyMem
 
 func _ready():
 	battlerAnim.anim = AnimationPlayer.new()
+	pass
 
 func isPartyMember():
 	return true
