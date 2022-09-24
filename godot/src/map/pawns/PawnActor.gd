@@ -8,10 +8,14 @@ signal moved(last_position, current_position)
 
 onready var pivot = $Pivot
 onready var tween = $Tween
-onready var anim: PawnAnim = pivot.get_node("PawnAnim")
+#onready var anim: PawnAnim = pivot.get_node("PawnAnim")
+onready var anim = pivot.get_node("PawnAnim")
 
+func _init():
+	pass
 
 func _ready():
+	assert(anim)
 	update_look_direction(Vector2(1, 0))
 
 
@@ -52,8 +56,9 @@ func bump():
 	set_process(true)
 
 
-func change_skin(pawn_anim: PawnAnim):
+func change_skin(pawn_anim):
 	# Replaces the pawn's animated character with another
+	assert(pawn_anim)
 	if anim:
 		anim.queue_free()
 	anim = pawn_anim

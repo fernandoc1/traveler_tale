@@ -37,7 +37,8 @@ func create_battler(spriteTexture: String):
 	
 	self.add_child(partyMember)
 	
-	partyMember.pawn_anim_path = pawnAnim.get_path()
+	#partyMember.pawn_anim_path = partyMemberAnim.get_path()
+	#partyMember.pawn_anim_path = pawnAnim.get_path()
 	partyMember.growth = load("res://src/combat/battlers/jobs/SquireJob.tres")
 	partyMember.initializeNow = true
 	partyMember._ready()

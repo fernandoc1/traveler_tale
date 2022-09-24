@@ -31,7 +31,9 @@ func spawn_pawn(
 	if pawn_previous:
 		pawn_previous.connect("moved", new_pawn, "_on_target_Pawn_moved")
 	add_child(new_pawn)
-	new_pawn.change_skin(party_member.get_pawn_anim())
+	var pawnAnim = party_member.get_pawn_anim()
+	assert(pawnAnim)
+	new_pawn.change_skin(pawnAnim)
 	return new_pawn
 
 
