@@ -46,7 +46,7 @@ func move_to(target_position):
 		Tween.EASE_IN
 	)
 	tween.start()
-	yield(anim.play_walk(), "completed")
+	#yield(anim.play_walk(), "completed")
 	set_process(true)
 
 

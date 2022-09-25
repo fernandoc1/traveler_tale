@@ -9,6 +9,10 @@ onready var extents: RectExtents = $RectExtents
 func _init():
 	print("Initializing")
 
+func _ready():
+	if(pawnAnim != null):
+		pawnAnim.set_current_animation('walk')
+
 func set_sprite_texture(path: String):
 	$Root/Body.texture = load(path)
 
