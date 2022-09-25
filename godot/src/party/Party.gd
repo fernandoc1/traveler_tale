@@ -23,22 +23,17 @@ func _ready():
 func create_battler(spriteTexture: String):
 	var partyMember = PartyMember.instance()
 	var battler: Battler = partyMember.get_node("Battler")
-	var pawnAnim = PawnAnim.instance()
 	var partyMemberAnim = PartyMemberAnim.instance()
 	var battlerSkin: Position2D = battler.get_node("Skin")
 
 	battlerSkin.add_child(partyMemberAnim)
-	battlerSkin.add_child(pawnAnim)
 	battler.stats = CharacterStats.new()
 	partyMember.initializeNow = false
 	
 	partyMemberAnim.set_sprite_texture(spriteTexture)
-	pawnAnim.set_sprite_texture(spriteTexture)
 	
 	self.add_child(partyMember)
-	
-	#partyMember.pawn_anim_path = partyMemberAnim.get_path()
-	#partyMember.pawn_anim_path = pawnAnim.get_path()
+
 	partyMember.growth = load("res://src/combat/battlers/jobs/SquireJob.tres")
 	partyMember.initializeNow = true
 	partyMember._ready()
