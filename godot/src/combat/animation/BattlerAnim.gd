@@ -28,12 +28,12 @@ func play_death():
 
 func play_walk():
 	pawnAnim.play("walk")
-	yield(anim, "animation_finished")
+	yield(pawnAnim, "animation_finished")
 
 
 func play_bump():
 	pawnAnim.play("bump")
-	yield(anim, "animation_finished")
+	yield(pawnAnim, "animation_finished")
 
 
 func get_current_animation_length():
